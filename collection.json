@@ -31,6 +31,20 @@
       "response": [
 
       ]
+    },
+    {
+      "name": "cloudproviders",
+      "_postman_id": "ff107732-e27d-4aec-9456-8aceea5f9e45",
+      "request": {
+        "method": "GET",
+        "header": [
+
+        ],
+        "url": "https://92a7tr3tik.execute-api.us-east-1.amazonaws.com/clouds"
+      },
+      "response": [
+
+      ]
     }
   ],
   "protocolProfileBehavior": {
