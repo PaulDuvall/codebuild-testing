@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - npm install newman --global
+  build:
+    commands:
+      - 'newman run -r html,json,junit,cli collection.json'
+artifacts:
+  files:
+    - newman/*
