@@ -1,7 +1,10 @@
 version: 0.2
 phases:
   install:
+    runtime-versions:
+      nodejs: 10
     commands:
+      - node --version
       - npm install newman --global
   build:
     commands:
