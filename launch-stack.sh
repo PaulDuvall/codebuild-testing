@@ -6,7 +6,7 @@ aws s3api list-buckets --query 'Buckets[?starts_with(Name, `pmd-codebuild-`) == 
 
 aws cloudformation delete-stack --stack-name pmd-codebuild-postman
 
-aws cloudformation wait stack-delete-complete pmd-codebuild-postman
+aws cloudformation wait stack-delete-complete --stack-name pmd-codebuild-postman
 
 
 aws cloudformation create-stack --stack-name pmd-codebuild-postman --capabilities CAPABILITY_NAMED_IAM --disable-rollback --template-body file://pipeline-cb.yml
