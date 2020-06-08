@@ -96,7 +96,7 @@ Resources:
             Action: "*"
             Resource: "*"
           Version: '2012-10-17'
-  CodeBuildCfnNag:
+  CodeBuildCloudProviders:
     Type: AWS::CodeBuild::Project
     DependsOn: CodeBuildRole
     Properties:
@@ -155,7 +155,7 @@ Resources:
         Actions:
         - InputArtifacts:
           - Name: SourceArtifacts
-          Name: cfn_nag
+          Name: TestCloudProvidersAPI
           ActionTypeId:
             Category: Test
             Owner: AWS
@@ -164,7 +164,7 @@ Resources:
           OutputArtifacts: []
           Configuration:
             ProjectName:
-              Ref: CodeBuildCfnNag
+              Ref: CodeBuildCloudProviders
           RunOrder: 1
     
       ArtifactStore:
