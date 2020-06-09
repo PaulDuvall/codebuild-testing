@@ -6,9 +6,19 @@ phases:
     commands:
       - node --version
       - npm install newman --global
+      - yum install -y jq
+  pre_build:
+    commands:
+      - aws s3 cp "s3://${S3_BUCKET}/postman-env-files/postman_environment.json" ./02postman/
+      - aws s3 cp "s3://${S3_BUCKET}/postman-env-files/collection.json" ./02postman/
+      - cd ./02postman
+      - ./update-postman-env-file.sh
   build:
     commands:
-      - 'newman run -r html,json,junit,cli collection.json'
-artifacts:
-  files:
-    - newman/*
+      - newman run collection.json --environment postman_environment.json -r junit
+
+reports:
+  JUnitReports: # CodeBuild will create a report group called "SurefireReports".
+    files: #Store all of the files
+      - '**/*'
+    base-directory: '02postman/newman' # Location of the reports
