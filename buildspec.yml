@@ -15,7 +15,7 @@ phases:
       - >-
         aws s3 cp "s3://${S3_BUCKET}/postman-env-files/collection.json"
         .
-      - sudo chmod +x *.sh
+      - chmod +x *.sh
       - ./update-postman-env-file.sh
   build:
     commands:
