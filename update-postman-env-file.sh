@@ -7,6 +7,7 @@ echo "Running update-postman-env-file.sh"
 
 SAM_STACK_NAME=${1:-junk}   
 
+echo "SAM_STACK_NAME is $SAM_STACK_NAME"
 
 # Get the 3rd Output value in the CloudFormation stack
 api_gateway_url=`aws cloudformation describe-stacks \
