@@ -124,6 +124,7 @@ Resources:
             Value:
               Fn::Sub: ${BucketRoot}
       Source:
+        BuildSpec: buildspec.yml
         Location:
           Fn::Join:
           - ''

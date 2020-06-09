@@ -5,6 +5,7 @@
 
 echo "Running update-postman-env-file.sh"
 
+# Get the 3rd Output value in the CloudFormation stack
 api_gateway_url=`aws cloudformation describe-stacks \
   --stack-name pmd-serverless-app-us-east-1 \
   --query "Stacks[0].Outputs[3].{OutputValueValue:OutputValue}" --output text`
