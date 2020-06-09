@@ -7,7 +7,7 @@ echo "Running update-postman-env-file.sh"
 
 api_gateway_url=`aws cloudformation describe-stacks \
   --stack-name pmd-serverless-app-us-east-1 \
-  --query "Stacks[0].Outputs[*].{OutputValueValue:OutputValue}" --output text`
+  --query "Stacks[0].Outputs[3].{OutputValueValue:OutputValue}" --output text`
 
 echo "API Gateway URL:" ${api_gateway_url}
 
