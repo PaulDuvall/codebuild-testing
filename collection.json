@@ -40,7 +40,7 @@
         "header": [
 
         ],
-        "url": "{{apigw-root}}/clouds"
+        "url": "{{apigw-root}}"
       },
       "response": [
 

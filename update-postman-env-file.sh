@@ -7,11 +7,11 @@ echo "Running update-postman-env-file.sh"
 
 api_gateway_url=`aws cloudformation describe-stacks \
   --stack-name pmd-serverless-app-us-east-1 \
-  --query "Stacks[2].Outputs[*].{OutputValueValue:OutputValue}" --output text`
+  --query "Stacks[0].Outputs[*].{OutputValueValue:OutputValue}" --output text`
 
 echo "API Gateway URL:" ${api_gateway_url}
 
-jq -e --arg apigwurl "$api_gateway_url" '(.values[] | select(.key=="apigw-root") | .value) = $apigwurl' \
+jq -e --arg apigwurl "$api_gateway_url" '(.values[] | select(.key=="GetDataApi") | .value) = $apigwurl' \
   postman_environment.json > postman_environment.json.tmp \
   && cp postman_environment.json.tmp postman_environment.json \
   && rm postman_environment.json.tmp
