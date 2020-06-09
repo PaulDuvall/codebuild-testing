@@ -123,6 +123,10 @@ Resources:
             Type: PLAINTEXT
             Value:
               Fn::Sub: ${BucketRoot}
+          - Name: SAM_STACK_NAME
+            Type: PLAINTEXT
+            Value:
+              Fn::Sub: ${AWS::StackName}-${AWS::Region}
       Source:
         BuildSpec: buildspec.yml
         Location:
