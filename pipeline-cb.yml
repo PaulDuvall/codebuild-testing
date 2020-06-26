@@ -128,15 +128,9 @@ Resources:
             Value:
               Fn::Sub: ${AWS::StackName}-${AWS::Region}
       Source:
-        BuildSpec: buildspec.yml
-        Location:
-          Fn::Join:
-          - ''
-          - - https://git-codecommit.
-            - Ref: AWS::Region
-            - ".amazonaws.com/v1/repos/"
-            - Ref: AWS::StackName
-        Type: CODECOMMIT
+        BuildSpec: buildspec-api-tests.yml
+        Location: !Sub https://github.com/${GitHubUser}/${GitHubRepo}/
+        Type: GITHUB
       TimeoutInMinutes: 10
       Tags:
       - Key: Owner
