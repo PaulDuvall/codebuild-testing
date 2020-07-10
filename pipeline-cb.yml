@@ -173,7 +173,7 @@ Resources:
           OutputArtifacts: []
           Configuration:
             ProjectName:
-              Ref: CodeBuildCloudProviders
+              Ref: CodeBuildTest
           RunOrder: 1
     
       ArtifactStore:
