@@ -11,6 +11,7 @@ phases:
       - npm install aws-cli-js
       - ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
       - echo $ACCOUNT_ID
+      - aws s3 mb s3://ceoa-tbd-$ACCOUNT_ID
 artifacts:
   files:
     - '**/*'
