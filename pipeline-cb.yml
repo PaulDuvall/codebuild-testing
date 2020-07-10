@@ -101,7 +101,7 @@ Resources:
             Action: "*"
             Resource: "*"
           Version: '2012-10-17'
-  CodeBuildCloudProviders:
+  CodeBuildTest:
     Type: AWS::CodeBuild::Project
     DependsOn: CodeBuildRole
     Properties:
@@ -117,7 +117,7 @@ Resources:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: "aws/codebuild/amazonlinux2-x86_64-standard:1.0"
+        Image: "aws/codebuild/amazonlinux2-x86_64-standard:3.0"
         EnvironmentVariables:
           - Name: S3_BUCKET
             Type: PLAINTEXT
@@ -128,7 +128,7 @@ Resources:
             Value:
               Fn::Sub: ${AWS::StackName}-${AWS::Region}
       Source:
-        BuildSpec: buildspec-api-tests.yml
+        BuildSpec: buildspec-aws.yml
         Location: !Sub https://github.com/${GitHubUser}/${GitHubRepo}/
         Type: GITHUB
       TimeoutInMinutes: 10
