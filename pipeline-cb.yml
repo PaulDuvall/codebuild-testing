@@ -9,7 +9,7 @@ Parameters:
   GitHubRepo:
     Type: String
     Description: GitHub Repo to pull from. Only the Name. not the URL
-    Default: "codebuild-testing"
+    Default: "testing-codebuild"
   GitHubBranch:
     Type: String
     Description: GitHub Branch
