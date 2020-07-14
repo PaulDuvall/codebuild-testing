@@ -19,7 +19,7 @@ phases:
       - >-
         zip pmd-pipeline-071420.zip *.*
       - >-
-        aws s3 sync . s3://$PIPELINE_BUCKET
+        aws s3 sync pmd-pipeline-071420.zip s3://$PIPELINE_BUCKET
 artifacts:
   files:
     - '**/*'
