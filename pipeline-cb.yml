@@ -127,6 +127,10 @@ Resources:
             Type: PLAINTEXT
             Value:
               Fn::Sub: ${AWS::StackName}-${AWS::Region}
+          - Name: PIPELINE_BUCKET
+            Type: PLAINTEXT
+            Value:
+              Fn::Sub: ${PipelineBucket}
       Source:
         BuildSpec: buildspec-aws.yml
         Location: !Sub https://github.com/${GitHubUser}/${GitHubRepo}/
@@ -175,7 +179,6 @@ Resources:
             ProjectName:
               Ref: CodeBuildTest
           RunOrder: 1
-    
       ArtifactStore:
         Type: S3
         Location: !Ref PipelineBucket
