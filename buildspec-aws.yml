@@ -13,6 +13,7 @@ phases:
       - echo $ACCOUNT_ID
       - >-
         zip -r ceoa-7-examples.zip ./webapp -j -x '*.git*'
+        ls -las
       - >-
         aws s3 sync ceoa-7-examples.zip s3://$PIPELINE_BUCKET
 artifacts:
