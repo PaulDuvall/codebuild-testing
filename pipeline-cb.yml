@@ -168,7 +168,7 @@ Resources:
         Actions:
         - InputArtifacts:
           - Name: SourceArtifacts
-          Name: TestCloudProvidersAPI
+          Name: RunCommands
           ActionTypeId:
             Category: Test
             Owner: AWS
