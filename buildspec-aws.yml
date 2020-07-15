@@ -11,15 +11,10 @@ phases:
       - npm install aws-cli-js
       - ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
       - echo $ACCOUNT_ID
-      # - aws s3 mb s3://ceoa-tbd-$ACCOUNT_ID
-      # - >-
-      #   aws s3 mb s3://pmd-codebuild-$ACCOUNT_ID
       - >-
-        cd webapp
+        zip -r ceoa-7-examples.zip ./webapp -j -x '*.git*'
       - >-
-        zip pmd-pipeline-071420.zip *.*
-      - >-
-        aws s3 sync pmd-pipeline-071420.zip s3://$PIPELINE_BUCKET
+        aws s3 sync ceoa-7-examples.zip s3://$PIPELINE_BUCKET
 artifacts:
   files:
     - '**/*'
